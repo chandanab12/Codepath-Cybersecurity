@@ -17,7 +17,7 @@ We also need to allow the HTTP traffic as well as HTTPS for this instance.
 **Summary:** How did you deploy it? Did you use GCP, AWS, Azure, Vagrant, VirtualBox, etc.?
 Inthis project, we used the GCP Tier 1 deployment. 
 
-<img src="mhn-admin.gif">
+<img src="https://github.com/chandanab12/Codepath-Cybersecurity/blob/main/honeypot.gif">
 
 ### Dionaea Honeypot Deployment (Required)
 
@@ -25,7 +25,7 @@ Inthis project, we used the GCP Tier 1 deployment.
 Dionaea is commonly used for learning or threat discovery. Target users for this tool are security professionals and system administrators.
 A honeypot is a fake application, server, or other networked resource that purposefully exposes unsecure features so that when an attacker uses them, it can learn about the attacker's tactics, tools, and possibly even identity. 
 Security researchers frequently utilize honeypots to analyze the threat environment faced by developers and system administrators, gathering information that may include:
-<img src="dionaea-honeypot.gif">
+<img src="https://github.com/chandanab12/Codepath-Cybersecurity/blob/main/honeypot1.gif">
 
 ### Database Backup (Required) 
 
@@ -46,11 +46,11 @@ session.json
 ### Deploying Additional Honeypot(s) (Optional)
 There is another honeypot deployed with the name Honeypot-1. It is similar to the dionea honeypot. 
 We can deploy any numner of honeypots with different capabilities and attack vectors. 
-#### X Honeypot
-
+#### Dionea Honeypot
+<img src= https://github.com/chandanab12/Codepath-Cybersecurity/blob/main/honeypot4.gif>
 **Summary:** What does this honeypot simulate and do for a security researcher?
 This honeypot lets a security researcher monitor the attack patterns of a hacker or attacker. 
-<img src="x-honeypot.gif">
+<img src="https://github.com/chandanab12/Codepath-Cybersecurity/blob/main/honeypotfinal.gif">
 
 ### Malware Capture and Identification (Optional)
 
@@ -63,7 +63,6 @@ MD5 Hash: *Run `md5sum` on the file and record the hash here.*
 
 SHA1 Hash: *Run `sha1sum` on the file and record the hash here.*
 
-<img src="x-malware.gif">
 
 ## Notes
 
