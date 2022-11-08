@@ -1,0 +1,74 @@
+# Honeypot Assignment
+
+**Time spent:** **10** hours spent in total
+
+**Objective:** Create a honeynet using MHN-Admin. Present your findings as if you were requested to give a brief report of the current state of Internet security. Assume that your audience is a current employer who is questioning why the company should allocate anymore resources to the IT security team.
+
+### MHN-Admin Deployment (Required)
+Start by creating the MHN Admin VM via your cloud provider.
+The VM needs to have an internet-facing IP and accessible to you via SSH.
+The MHN Admin VM will be provisioned with the following attributes:
+Ubuntu 18.04 Minimal
+HTTP traffic allowed (port 80)
+TCP ports 3000 and 10000 need to be open to allow incoming (aka 'ingress') traffic for geolocation and honeypot sensor data.
+
+We also need to allow the HTTP traffic as well as HTTPS for this instance. 
+
+**Summary:** How did you deploy it? Did you use GCP, AWS, Azure, Vagrant, VirtualBox, etc.?
+Inthis project, we used the GCP Tier 1 deployment. 
+
+<img src="mhn-admin.gif">
+
+### Dionaea Honeypot Deployment (Required)
+
+**Summary:** Briefly in your own words, what does dionaea do?
+Dionaea is commonly used for learning or threat discovery. Target users for this tool are security professionals and system administrators.
+A honeypot is a fake application, server, or other networked resource that purposefully exposes unsecure features so that when an attacker uses them, it can learn about the attacker's tactics, tools, and possibly even identity. 
+Security researchers frequently utilize honeypots to analyze the threat environment faced by developers and system administrators, gathering information that may include:
+<img src="dionaea-honeypot.gif">
+
+### Database Backup (Required) 
+
+
+**Summary:** What is the RDBMS that MHN-Admin uses? What information does the exported JSON file record?
+To export the data to json, ssh into the MHN admin VM and run the following command:
+$ mongoexport --db mnemosyne --collection session > session.json
+connected to: 127.0.0.1
+exported 12828 records
+
+*Be sure to upload session.json directly to this GitHub repo/branch in order to get full credit.*
+You can do the export directly from your local machine in two steps, so run the following commands on your local machine.
+$ gcloud compute ssh mhn-admin --command="mongoexport --db mnemosyne --collection session > session.json"
+connected to: 127.0.0.1
+exported 2831 records
+$ gcloud compute scp mhn-admin:~/session.json ./session.json
+session.json     
+### Deploying Additional Honeypot(s) (Optional)
+There is another honeypot deployed with the name Honeypot-1. It is similar to the dionea honeypot. 
+We can deploy any numner of honeypots with different capabilities and attack vectors. 
+#### X Honeypot
+
+**Summary:** What does this honeypot simulate and do for a security researcher?
+This honeypot lets a security researcher monitor the attack patterns of a hacker or attacker. 
+<img src="x-honeypot.gif">
+
+### Malware Capture and Identification (Optional)
+
+#### 15 Malware
+
+**Summary:** How did you find it? Which honeypot captured it? What does each malware do?
+The malware was captured by dionea honeypot. 
+
+MD5 Hash: *Run `md5sum` on the file and record the hash here.*
+
+SHA1 Hash: *Run `sha1sum` on the file and record the hash here.*
+
+<img src="x-malware.gif">
+
+## Notes
+
+Describe any challenges encountered while doing the assignment.
+
+Deploying the VM instances was easy but one must be aware to set the firewall rules and set the port numbers based on their system. 
+Another issue encountered was to connect to the mhm-admin console. 
+Lastly, the attack vectors were not captured due to issues with the python version updates. 
